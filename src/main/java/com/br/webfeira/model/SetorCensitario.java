@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 public class SetorCensitario extends AbstractEntity {
 
 	@Column(name="SETCENS", length=15, nullable=false, unique=false)
-	private String nomeCensitario;
+	private String codigoCensitario;
 	@Column(name="AREAP", length=13, nullable=false, unique=false)
 	private String areaCensitario;
 
@@ -17,16 +17,16 @@ public class SetorCensitario extends AbstractEntity {
 
 	public SetorCensitario(String nomeCensitario, String areaCensitario) {
 		super();
-		this.nomeCensitario = nomeCensitario;
+		this.codigoCensitario = nomeCensitario;
 		this.areaCensitario = areaCensitario;
 	}
 
 	public String getNomeCensitario() {
-		return nomeCensitario;
+		return codigoCensitario;
 	}
 
 	public void setNomeCensitario(String nomeCensitario) {
-		this.nomeCensitario = nomeCensitario;
+		this.codigoCensitario = nomeCensitario;
 	}
 
 	public String getAreaCensitario() {

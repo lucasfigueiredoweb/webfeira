@@ -1,43 +1,36 @@
 package com.br.webfeira.service;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
-import javax.validation.Valid;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.br.webfeira.dto.FeiraDTO;
 import com.br.webfeira.exchange.FeiraRequest;
 import com.br.webfeira.model.Feira;
-import com.br.webfeira.repository.DataSetup;
 import com.br.webfeira.repository.DataSetupRepository;
 import com.br.webfeira.repository.FeiraRepository;
 
 @Service
 public class FeiraServiceImpl implements FeiraService {
-	
-	private static final Logger LOGGER = LoggerFactory.getLogger(FeiraServiceImpl.class);
 
 	@Autowired
 	private FeiraRepository feiraRepository;
-	
+
 	@Autowired
 	private DataSetupRepository dataRepository;
-	
+
+	@PostConstruct
 	public void saveAllFeiraFromImportedFile() {
 		List<Feira> feiras = new ArrayList<Feira>();
 		List<FeiraDTO> feirasDTO = dataRepository.loadInitialFeiraData();
 		for (FeiraDTO feiraDTO : feirasDTO) {
 			Feira feira = FeiraDTO.fromDTO(feiraDTO);
 			feiras.add(feira);
-			LOGGER.info("FEIRA ADICIONADO A LISTA" + feiraDTO);
 		}
 		feiraRepository.saveAll(feiras);
 	}

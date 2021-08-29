@@ -8,11 +8,11 @@ public class Endereco extends AbstractEntity {
 
 	@Column(name="LOGRADOURO", length=34, nullable=false, unique=false)
 	private String logradouro;
-	@Column(name="NUMERO", length=5, nullable=false, unique=false)
+	@Column(name="NUMERO")
 	private String numero;
 	@Column(name="BAIRRO", length=20, nullable=false, unique=false)
 	private String bairro;
-	@Column(name="REFERENCIA", length=24, nullable=false, unique=false)
+	@Column(name="REFERENCIA")
 	private String referencia;
 
 	public Endereco() {

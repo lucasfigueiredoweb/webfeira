@@ -12,6 +12,11 @@ public class FeiraDTO {
 	@JsonProperty("ID")
 	private String id;
 
+	@JsonProperty("NOME_FEIRA")
+	private String nomeFeira;
+	@JsonProperty("REGISTRO")
+	private String registroFeira;
+
 	@JsonProperty("LONG")
 	private String longitude;
 	@JsonProperty("LAT")
@@ -34,13 +39,6 @@ public class FeiraDTO {
 	private String regiao5;
 	@JsonProperty("REGIAO8")
 	private String regiao8;
-
-	@JsonProperty("NOME_FEIRA")
-	private String nomeFeira;
-	@JsonProperty("REGISTRO")
-	private String registroFeira;
-
-
 
 	@JsonProperty("LOGRADOURO")
 	private String logradouro;

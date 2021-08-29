@@ -2,6 +2,8 @@ package com.br.webfeira.controller;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,7 @@ import com.br.webfeira.dto.FeiraDTO;
 import com.br.webfeira.exceptions.ResourceNotFoundException;
 import com.br.webfeira.exchange.FeiraRequest;
 import com.br.webfeira.exchange.FeiraResponse;
+import com.br.webfeira.repository.DataSetup;
 import com.br.webfeira.service.FeiraService;
 import com.br.webfeira.utils.MessageConstants;
 
@@ -26,12 +29,14 @@ import com.br.webfeira.utils.MessageConstants;
 @RequestMapping("/feira")
 public class FeiraController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(FeiraController.class);
+
 	@Autowired
 	private FeiraService feiraService;
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Object> create(@RequestBody @Valid FeiraRequest feiraRequest) {
+	public ResponseEntity<Object> create(@RequestBody FeiraRequest feiraRequest) {
 		FeiraDTO feiraDTO = new FeiraDTO();
 		try {
 			feiraDTO = FeiraDTO.toDTO(feiraService.save(feiraRequest));
@@ -39,10 +44,11 @@ public class FeiraController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 					.body(new FeiraResponse(MessageConstants.ERRO_SALVAR_FEIRA));
 		} catch (Exception e) {
+			LOGGER.error("Error ao Cadastrar a Feira", e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 					.body(new FeiraResponse(MessageConstants.ERRO_GENERICO_DO_SISTEMA));
 		}
-
+		LOGGER.info("Feira criada com sucesso");
 		return ResponseEntity.accepted().body(feiraDTO);
 	}
 

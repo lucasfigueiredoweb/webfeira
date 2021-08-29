@@ -1,26 +1,28 @@
 package com.br.webfeira.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Feira extends AbstractEntity {
 
-	@OneToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "LOCALIZACAO_ID")
 	private Localizacao localizacao;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "SETOR_ID")
 	private SetorCensitario setor;
 	
-	@OneToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "MUNICIPIO_ID")
 	private Municipio municipio;
 	
-	@OneToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ENDERECO_ID")
 	private Endereco endereco;
 
