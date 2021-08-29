@@ -20,7 +20,7 @@ import com.br.webfeira.exceptions.ResourceNotFoundException;
 import com.br.webfeira.exchange.FeiraRequest;
 import com.br.webfeira.exchange.FeiraResponse;
 import com.br.webfeira.service.FeiraService;
-import com.br.webfeira.utils.copy.MessageConstants;
+import com.br.webfeira.utils.MessageConstants;
 
 @RestController
 @RequestMapping("/feira")

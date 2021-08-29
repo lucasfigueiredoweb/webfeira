@@ -1,31 +1,54 @@
 package com.br.webfeira.dto;
 
+import com.br.webfeira.model.Endereco;
 import com.br.webfeira.model.Feira;
+import com.br.webfeira.model.Localizacao;
+import com.br.webfeira.model.Municipio;
+import com.br.webfeira.model.SetorCensitario;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.Data;
-
-@Data
 public class FeiraDTO {
 
+	@JsonProperty("ID")
+	private String id;
+
+	@JsonProperty("LONG")
 	private String longitude;
+	@JsonProperty("LAT")
 	private String latitude;
 
+	@JsonProperty("SETCENS")
 	private String nomeCensitario;
+	@JsonProperty("AREAP")
 	private String areaCensitario;
-
-	private String nomeFeira;
-	private String registroFeira;
-
+	
+	@JsonProperty("CODDIST")
 	private String codigoDistrito;
+	@JsonProperty("DISTRITO")
 	private String nomeDistrito;
+	@JsonProperty("CODSUBPREF")
 	private String codigoPrefeitura;
+	@JsonProperty("SUBPREFE")
 	private String nomePrefeitura;
+	@JsonProperty("REGIAO5")
 	private String regiao5;
+	@JsonProperty("REGIAO8")
 	private String regiao8;
 
+	@JsonProperty("NOME_FEIRA")
+	private String nomeFeira;
+	@JsonProperty("REGISTRO")
+	private String registroFeira;
+
+
+
+	@JsonProperty("LOGRADOURO")
 	private String logradouro;
+	@JsonProperty("NUMERO")
 	private String numero;
+	@JsonProperty("BAIRRO")
 	private String bairro;
+	@JsonProperty("REFERENCIA")
 	private String referencia;
 
 	public static FeiraDTO toDTO(Feira feira) {
@@ -45,6 +68,26 @@ public class FeiraDTO {
 		dto.setBairro(feira.getEndereco().getBairro());
 		dto.setReferencia(feira.getEndereco().getReferencia());
 		return dto;
+	}
+	
+	public static Feira fromDTO(FeiraDTO dto) {
+		Feira feira = new Feira();
+		feira.setNomeFeira(dto.getNomeFeira());
+		feira.setRegistroFeira(dto.getRegistroFeira());
+		
+		feira.setLocalizacao(new Localizacao(dto.getLongitude(), dto.getLatitude()));
+		feira.setEndereco(new Endereco(dto.getLogradouro(), dto.getNumero(), dto.getBairro(), dto.getReferencia()));
+		feira.setMunicipio(new Municipio(dto.getCodigoDistrito(), dto.getNomeDistrito(), dto.getCodigoPrefeitura(), dto.getNomePrefeitura(), dto.getRegiao5(), dto.getRegiao8()));
+		feira.setSetor(new SetorCensitario(dto.getNomeCensitario(), dto.getAreaCensitario()));
+		return feira;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getLongitude() {

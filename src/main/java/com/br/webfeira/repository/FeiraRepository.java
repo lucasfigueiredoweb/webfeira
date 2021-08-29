@@ -4,12 +4,13 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.br.webfeira.model.Feira;
 
 @Repository
-public interface FeiraRepository extends JpaRepository<Feira, UUID> {
+public interface FeiraRepository extends CrudRepository<Feira, UUID> {
 	
 	Optional<Feira> findById(UUID id);
 	
