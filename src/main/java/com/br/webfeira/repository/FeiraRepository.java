@@ -1,9 +1,11 @@
 package com.br.webfeira.repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -18,11 +20,11 @@ public interface FeiraRepository extends CrudRepository<Feira, UUID> {
 	
 	void deleteByCodigoRegistroFeira(String codigoRegistro);
 	
-	Feira findByNomeFeira(String nomeFeira);
+	Page<Feira> findByNomeFeira(String nomeFeira, Pageable pageable);
 	
-	Feira findByMunicipio_Regiao5(String regiao5);
+	Page<Feira> findByMunicipio_Regiao5(String regiao5, Pageable pageable);
 	
-	Feira findByMunicipio_CodigoDistrito(String nomeDistrito);
+	Page<Feira> findByMunicipio_NomeDistrito(String nomeDistrito, Pageable pageable);
 	
-	Feira findByEndereco_Bairro(String bairro);
+	Page<Feira> findByEndereco_Bairro(String bairro, Pageable pageable);
 }

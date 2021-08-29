@@ -1,5 +1,8 @@
 package com.br.webfeira.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.br.webfeira.exchange.FeiraRequest;
 import com.br.webfeira.model.Feira;
 
@@ -10,12 +13,14 @@ public interface FeiraService {
 	Feira save(FeiraRequest feiraRequest);
 
 	void deleteByCodigoRegistroFeira(String codigoRegistro);
+		
+	Feira findByCodigoRegistro(String codigoRegistro);
 	
-	Feira findByNomeFeira(String nomeFeira);
+	Page<Feira> findByNomeFeira(String nomeFeira, Pageable pageable);
 	
-	Feira findByRegiao5(String regiao5);
+	Page<Feira> findByMunicipio_Regiao5(String regiao5, Pageable pageable);
 	
-	Feira findByDistrito(String nomeDistrito);
+	Page<Feira> findByMunicipio_NomeDistrito(String nomeDistrito, Pageable pageable);
 	
-	Feira findByBairro(String bairro);
+	Page<Feira> findByEndereco_Bairro(String bairro, Pageable pageable);
 }

@@ -1,5 +1,9 @@
 package com.br.webfeira.dto;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import com.br.webfeira.model.Endereco;
 import com.br.webfeira.model.Feira;
 import com.br.webfeira.model.Localizacao;
@@ -26,7 +30,7 @@ public class FeiraDTO {
 	private String nomeCensitario;
 	@JsonProperty("AREAP")
 	private String areaCensitario;
-	
+
 	@JsonProperty("CODDIST")
 	private String codigoDistrito;
 	@JsonProperty("DISTRITO")
@@ -51,8 +55,11 @@ public class FeiraDTO {
 
 	public static FeiraDTO toDTO(Feira feira) {
 		FeiraDTO dto = new FeiraDTO();
+		dto.setId(feira.getId().toString());
+		dto.setNomeFeira(feira.getNomeFeira());
+		dto.setRegistroFeira(feira.getRegistroFeira());
 		dto.setLongitude(feira.getLocalizacao().getLongitude());
-		dto.setLongitude(feira.getLocalizacao().getLatitude());
+		dto.setLatitude(feira.getLocalizacao().getLatitude());
 		dto.setNomeCensitario(feira.getSetor().getNomeCensitario());
 		dto.setAreaCensitario(feira.getSetor().getAreaCensitario());
 		dto.setCodigoDistrito(feira.getMunicipio().getCodigoDistrito());
@@ -67,15 +74,43 @@ public class FeiraDTO {
 		dto.setReferencia(feira.getEndereco().getReferencia());
 		return dto;
 	}
-	
+
+	public static List<FeiraDTO> toDTOList(List<Feira> feiras) {
+		List<FeiraDTO> feirasDTO = new ArrayList<FeiraDTO>();
+		
+		for (Feira feira : feiras) {
+				FeiraDTO dto = new FeiraDTO();
+				dto.setId(feira.getId().toString());
+				dto.setNomeFeira(feira.getNomeFeira());
+				dto.setRegistroFeira(feira.getRegistroFeira());
+				dto.setLongitude(feira.getLocalizacao().getLongitude());
+				dto.setLatitude(feira.getLocalizacao().getLatitude());
+				dto.setNomeCensitario(feira.getSetor().getNomeCensitario());
+				dto.setAreaCensitario(feira.getSetor().getAreaCensitario());
+				dto.setCodigoDistrito(feira.getMunicipio().getCodigoDistrito());
+				dto.setNomeDistrito(feira.getMunicipio().getNomeDistrito());
+				dto.setCodigoPrefeitura(feira.getMunicipio().getCodigoPrefeitura());
+				dto.setNomePrefeitura(feira.getMunicipio().getNomePrefeitura());
+				dto.setRegiao5(feira.getMunicipio().getRegiao5());
+				dto.setRegiao8(feira.getMunicipio().getRegiao8());
+				dto.setLogradouro(feira.getEndereco().getLogradouro());
+				dto.setNumero(feira.getEndereco().getNumero());
+				dto.setBairro(feira.getEndereco().getBairro());
+				dto.setReferencia(feira.getEndereco().getReferencia());
+				feirasDTO.add(dto);
+			}
+		return feirasDTO;
+	}
+
 	public static Feira fromDTO(FeiraDTO dto) {
 		Feira feira = new Feira();
 		feira.setNomeFeira(dto.getNomeFeira());
 		feira.setRegistroFeira(dto.getRegistroFeira());
-		
+
 		feira.setLocalizacao(new Localizacao(dto.getLongitude(), dto.getLatitude()));
 		feira.setEndereco(new Endereco(dto.getLogradouro(), dto.getNumero(), dto.getBairro(), dto.getReferencia()));
-		feira.setMunicipio(new Municipio(dto.getCodigoDistrito(), dto.getNomeDistrito(), dto.getCodigoPrefeitura(), dto.getNomePrefeitura(), dto.getRegiao5(), dto.getRegiao8()));
+		feira.setMunicipio(new Municipio(dto.getCodigoDistrito(), dto.getNomeDistrito(), dto.getCodigoPrefeitura(),
+				dto.getNomePrefeitura(), dto.getRegiao5(), dto.getRegiao8()));
 		feira.setSetor(new SetorCensitario(dto.getNomeCensitario(), dto.getAreaCensitario()));
 		return feira;
 	}
