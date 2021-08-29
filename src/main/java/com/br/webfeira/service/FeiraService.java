@@ -5,11 +5,11 @@ import com.br.webfeira.model.Feira;
 
 public interface FeiraService {
 
-	void updateByCodigoRegistro(String codigoRegistro, FeiraRequest feiraRequest);
+	void updateByCodigoRegistroFeira(String codigoRegistro, FeiraRequest feiraRequest);
 
 	Feira save(FeiraRequest feiraRequest);
 
-	void deleteByCodigoRegistro(String codigoRegistro);
+	void deleteByCodigoRegistroFeira(String codigoRegistro);
 	
 	Feira findByNomeFeira(String nomeFeira);
 	

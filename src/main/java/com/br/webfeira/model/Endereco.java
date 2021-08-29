@@ -1,20 +1,18 @@
 package com.br.webfeira.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Endereco extends AbstractEntity {
 
+	@Column(name="LOGRADOURO", length=34, nullable=false, unique=false)
 	private String logradouro;
+	@Column(name="NUMERO", length=5, nullable=false, unique=false)
 	private String numero;
+	@Column(name="BAIRRO", length=20, nullable=false, unique=false)
 	private String bairro;
+	@Column(name="REFERENCIA", length=24, nullable=false, unique=false)
 	private String referencia;
 
 	public Endereco() {

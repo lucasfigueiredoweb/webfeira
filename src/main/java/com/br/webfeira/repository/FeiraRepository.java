@@ -13,15 +13,15 @@ public interface FeiraRepository extends JpaRepository<Feira, UUID> {
 	
 	Optional<Feira> findById(UUID id);
 	
-	Optional<Feira> findByCodigoRegistro(String codigoRegistro);
+	Optional<Feira> findByCodigoRegistroFeira(String codigoRegistro);
 	
-	void deleteByCodigoRegistro(String codigoRegistro);
+	void deleteByCodigoRegistroFeira(String codigoRegistro);
 	
 	Feira findByNomeFeira(String nomeFeira);
 	
-	Feira findByRegiao5(String regiao5);
+	Feira findByMunicipio_Regiao5(String regiao5);
 	
-	Feira findByDistrito(String nomeDistrito);
+	Feira findByMunicipio_CodigoDistrito(String nomeDistrito);
 	
-	Feira findByBairro(String bairro);
+	Feira findByEndereco_Bairro(String bairro);
 }

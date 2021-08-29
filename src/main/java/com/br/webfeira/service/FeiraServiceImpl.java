@@ -16,7 +16,7 @@ public class FeiraServiceImpl implements FeiraService {
 
 	private FeiraRepository repository;
 
-	public void updateByCodigoRegistro(String codigoRegistro, FeiraRequest feiraRequest) {
+	public void updateByCodigoRegistroFeira(String codigoRegistro, FeiraRequest feiraRequest) {
 		Feira feira = getFeiraByCodigoRegistro(codigoRegistro);
 		feiraRequest.copyToModel(feira);
 		repository.save(feira);
@@ -28,12 +28,12 @@ public class FeiraServiceImpl implements FeiraService {
 		return repository.save(feira);
 	}
 
-	public void deleteByCodigoRegistro(String codigoRegistro) {
-		repository.deleteByCodigoRegistro(codigoRegistro);
+	public void deleteByCodigoRegistroFeira(String codigoRegistro) {
+		repository.deleteByCodigoRegistroFeira(codigoRegistro);
 	}
 
 	private Feira getFeiraByCodigoRegistro(String codigoRegistro) {
-		Optional<Feira> FeiraOptional = repository.findByCodigoRegistro(codigoRegistro);
+		Optional<Feira> FeiraOptional = repository.findByCodigoRegistroFeira(codigoRegistro);
 		return FeiraOptional.orElseThrow(
 				() -> new com.br.webfeira.exceptions.ResourceNotFoundException("Feira nao Encontrada com esse UUID"));
 	}
@@ -43,15 +43,15 @@ public class FeiraServiceImpl implements FeiraService {
 	}
 
 	public Feira findByRegiao5(String regiao5) {
-		return repository.findByRegiao5(regiao5);
+		return repository.findByMunicipio_Regiao5(regiao5);
 	}
 
 	public Feira findByDistrito(String nomeDistrito) {
-		return repository.findByDistrito(nomeDistrito);
+		return repository.findByMunicipio_CodigoDistrito(nomeDistrito);
 	}
 
 	public Feira findByBairro(String bairro) {
-		return repository.findByBairro(bairro);
+		return repository.findByEndereco_Bairro(bairro);
 	}
 
 }

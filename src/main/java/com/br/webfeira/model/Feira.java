@@ -1,17 +1,33 @@
 package com.br.webfeira.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Feira extends AbstractEntity {
 
+	@OneToOne
+	@JoinColumn(name = "LOCALIZACAO_ID")
 	private Localizacao localizacao;
+	
+	@OneToOne
+	@JoinColumn(name = "SETOR_ID")
 	private SetorCensitario setor;
+	
+	@OneToOne
+	@JoinColumn(name = "MUNICIPIO_ID")
 	private Municipio municipio;
+	
+	@OneToOne
+	@JoinColumn(name = "ENDERECO_ID")
 	private Endereco endereco;
 
+	@Column(name="NOME_FEIRA", length=30, nullable=false, unique=false)
 	private String nomeFeira;
-	private String registroFeira;
+	@Column(name="REGISTRO", length=6, nullable=false, unique=false)
+	private String codigoRegistroFeira;
 	
 	public Feira() {
 		super();
@@ -25,7 +41,7 @@ public class Feira extends AbstractEntity {
 		this.municipio = municipio;
 		this.endereco = endereco;
 		this.nomeFeira = nomeFeira;
-		this.registroFeira = registroFeira;
+		this.codigoRegistroFeira = registroFeira;
 	}
 
 
@@ -70,10 +86,10 @@ public class Feira extends AbstractEntity {
 	}
 
 	public String getRegistroFeira() {
-		return registroFeira;
+		return codigoRegistroFeira;
 	}
 
 	public void setRegistroFeira(String registroFeira) {
-		this.registroFeira = registroFeira;
+		this.codigoRegistroFeira = registroFeira;
 	}
 }

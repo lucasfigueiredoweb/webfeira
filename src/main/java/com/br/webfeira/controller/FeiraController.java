@@ -51,7 +51,7 @@ public class FeiraController {
 	public ResponseEntity<Object> update(@PathVariable String codigoRegistro,
 			@RequestBody @Valid FeiraRequest feiraRequest) {
 		try {
-			feiraService.updateByCodigoRegistro(codigoRegistro, feiraRequest);
+			feiraService.updateByCodigoRegistroFeira(codigoRegistro, feiraRequest);
 		} catch (ResourceNotFoundException e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body(new FeiraResponse(MessageConstants.FEIRA_NAO_ENCONTRADA));
@@ -66,7 +66,7 @@ public class FeiraController {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public ResponseEntity<Object> delete(@PathVariable String codigoRegistro) {
 		try {
-			feiraService.deleteByCodigoRegistro(codigoRegistro);
+			feiraService.deleteByCodigoRegistroFeira(codigoRegistro);
 		} catch (ResourceNotFoundException e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body(new FeiraResponse(MessageConstants.FEIRA_NAO_ENCONTRADA));
@@ -125,7 +125,7 @@ public class FeiraController {
 		return ResponseEntity.accepted().body(feiraDTO);
 	}
 
-	@GetMapping(path = "/busca/{regiao5}", produces = "application/json")
+	@GetMapping(path = "/busca/{bairro}", produces = "application/json")
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<Object> findByBairro(@PathVariable String bairro) {
 		FeiraDTO feiraDTO = new FeiraDTO();

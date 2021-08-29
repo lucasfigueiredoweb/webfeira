@@ -7,10 +7,7 @@ import javax.persistence.MappedSuperclass;
 
 import org.hibernate.annotations.Type;
 
-import lombok.NoArgsConstructor;
-
 @MappedSuperclass
-@NoArgsConstructor
 public abstract class AbstractEntity {
 	
 	@Id @Type(type = "pg-uuid")

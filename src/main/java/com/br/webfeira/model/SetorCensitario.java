@@ -1,18 +1,14 @@
 package com.br.webfeira.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class SetorCensitario extends AbstractEntity {
 
+	@Column(name="SETCENS", length=15, nullable=false, unique=false)
 	private String nomeCensitario;
+	@Column(name="AREAP", length=13, nullable=false, unique=false)
 	private String areaCensitario;
 
 	public SetorCensitario() {

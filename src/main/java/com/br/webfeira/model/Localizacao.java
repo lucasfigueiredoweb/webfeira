@@ -1,11 +1,14 @@
 package com.br.webfeira.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
 public class Localizacao extends AbstractEntity {
 
+	@Column(name="LONG", length=10, nullable=false, unique=false)
 	private String longitude;
+	@Column(name="LAT", length=10, nullable=false, unique=false)
 	private String latitude;
 
 	public Localizacao() {
