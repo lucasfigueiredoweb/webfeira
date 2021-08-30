@@ -46,7 +46,8 @@ ___
 ___
 OBS: Após a limpeza dos containers os arquivos de dados do Banco ainda poderão ser acessados em:
 **/var/lib/postgresql/data/**
-
+___
+Caso queira utilizar o processo de CI/CD via Jenkins, só criar 1 nova pipeline (testado via modo freestyle) no Jenkins e adicionar como arquivo de build o arquivo `Jenkinsfile` contido na raiz do projeto
 # Documentação
 
 https://documenter.getpostman.com/view/954685/U16bvU2e
