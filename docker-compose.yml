@@ -1,0 +1,28 @@
+version: '3'
+services:
+  webfeira:
+    image: 'webfeira:latest'
+    container_name: webfeira
+    restart: unless-stopped
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/webfeira?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+      - SPRING_JPA_GENERATE_DDL=true
+    depends_on:
+      - postgres
+  postgres:
+    image: 'postgres:13.4'
+    container_name: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=webfeira
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+
+volumes:
+  database-data:
