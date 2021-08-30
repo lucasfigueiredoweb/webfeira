@@ -1,0 +1,97 @@
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: webfeira-secrets
+  namespace: webfeira
+data:
+  webfeira-datasource-user: postgres
+  thanatos-datasource-pass: admin
+---
+apiVersion: v1
+data:
+  ENVIRONMENT: docker
+  GROUP_ID_NAME: webfeira
+  JAVA_OPTS: >-
+    -Dspring.profiles.active=dev -Xmx512m -Xms128m -XX:MaxMetaspaceSize=128m
+    -XX:MaxDirectMemorySize=256m
+kind: ConfigMap
+metadata:
+  name: webfeira-config
+  namespace: webfeira
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webfeira
+    component: webfeira
+  name: webfeira
+  namespace: webfeira
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: webfeira
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: webfeira
+        component: webfeira
+    spec:
+      containers:
+          envFrom:
+            - configMapRef:
+                name: webfeira-config
+          image: webfeira:latest
+          name: webfeira
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 120
+            periodSeconds: 30
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 0.5
+              memory: 640Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: webfeira
+  name: webfeira
+  namespace: webfeira
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    component: thanatos-be
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: traefik-internal
+  name: webfeira
+  namespace: webfeira
+spec:
+  rules:
+    - host: { Webfeira Host }
+      http:
+        paths:
+          - backend:
+              serviceName: webfeira
+              servicePort: 80
+            path: /

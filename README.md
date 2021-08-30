@@ -20,7 +20,9 @@ API de Gerenciamento do Ciclo de vida de criação de Feiras Online.
 
 >GNU Make 4.1
 
->JUNIT 5.7.2
+>Junit 5.7.2
+
+>Kubernetes 1.22 
 
 # Inicialização
 
@@ -51,7 +53,10 @@ ___
 OBS: Após a limpeza dos containers os arquivos de dados do Banco ainda poderão ser acessados em:
 **/var/lib/postgresql/data/**
 ___
-Caso queira utilizar o processo de CI/CD via Jenkins, só criar 1 nova pipeline (testado via modo freestyle) no Jenkins e adicionar como arquivo de build o arquivo `Jenkinsfile` contido na raiz do projeto
+- Caso queira utilizar o processo de CI/CD via Jenkins, só criar 1 nova pipeline (testado via modo freestyle) no Jenkins e adicionar como arquivo de build o arquivo `Jenkinsfile` contido na raiz do projeto
+
+
+- Caso queira utilizar o Kubernetes, utilizar o arquivo `deploy.yml` na raiz do projeto, alterando seu host para domain desejado, utilizando Traefik como Ingress Controller
 # Documentação
 
 Todos os testes realizados na aplicação foram realizados via ferramenta POSTMAN para testes de API.
