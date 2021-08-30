@@ -74,6 +74,10 @@ Arquivo na raiz do projeto: `ApplicationLogs.log`
 
 - Implantar em algum cloudProvider ou PaaS para utilização sem necessidade de baixar o projeto.
 
+### Issues
+
+Por favor verificar a seção de Issues do Github para mais informações
+
 ### Licença
 
 MIT
