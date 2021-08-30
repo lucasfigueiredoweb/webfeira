@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.br.webfeira.dto.FeiraDTO;
+import com.br.webfeira.dtos.FeiraDTO;
 import com.br.webfeira.utils.CsvUtils;
 import com.br.webfeira.utils.MessageConstants;
 

@@ -5,11 +5,11 @@ import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import com.br.webfeira.model.Endereco;
-import com.br.webfeira.model.Feira;
-import com.br.webfeira.model.Localizacao;
-import com.br.webfeira.model.Municipio;
-import com.br.webfeira.model.SetorCensitario;
+import com.br.webfeira.models.Endereco;
+import com.br.webfeira.models.Feira;
+import com.br.webfeira.models.Localizacao;
+import com.br.webfeira.models.Municipio;
+import com.br.webfeira.models.SetorCensitario;
 
 public class FeiraRequest implements Serializable {
 

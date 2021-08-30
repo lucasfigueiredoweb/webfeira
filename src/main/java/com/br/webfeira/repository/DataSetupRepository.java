@@ -2,7 +2,7 @@ package com.br.webfeira.repository;
 
 import java.util.List;
 
-import com.br.webfeira.dto.FeiraDTO;
+import com.br.webfeira.dtos.FeiraDTO;
 
 public interface DataSetupRepository {
 	

@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.br.webfeira.model.Feira;
+import com.br.webfeira.models.Feira;
 
 @Repository
 public interface FeiraRepository extends CrudRepository<Feira, UUID> {
