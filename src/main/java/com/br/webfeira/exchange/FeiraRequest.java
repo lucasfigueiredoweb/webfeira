@@ -19,8 +19,6 @@ public class FeiraRequest implements Serializable {
 	@Size(min = 4, max = 30)
 	private String nomeFeira;
 
-	@NotBlank(message = "Código de Registro da Feira e obrigatorio")
-	@Size(min = 6, max = 6)
 	private String registroFeira;
 
 	private String longitude;
@@ -71,6 +69,11 @@ public class FeiraRequest implements Serializable {
 
 	public void copyToModel(Feira feira) {
 		feira.setNomeFeira(this.nomeFeira);
+		
+		if(this.registroFeira == null || this.registroFeira.equals("")) {
+			throw new IllegalArgumentException("Codigo de Registro da Feira e obrigatorio");
+		}
+		
 		feira.setRegistroFeira(this.registroFeira);
 
 		feira.setLocalizacao(new Localizacao(this.longitude, this.latitude));
@@ -79,6 +82,17 @@ public class FeiraRequest implements Serializable {
 				this.nomePrefeitura, this.regiao5, this.regiao8));
 		feira.setEndereco(new Endereco(this.logradouro, this.numero, this.bairro, this.referencia));
 	}
+	
+	public void copyToModelUpdate(Feira feira) {
+		feira.setNomeFeira(this.nomeFeira);
+		
+		feira.setLocalizacao(new Localizacao(this.longitude, this.latitude));
+		feira.setSetor(new SetorCensitario(this.codigoCensitario, this.areaCensitario));
+		feira.setMunicipio(new Municipio(this.codigoDistrito, this.nomeDistrito, this.codigoPrefeitura,
+				this.nomePrefeitura, this.regiao5, this.regiao8));
+		feira.setEndereco(new Endereco(this.logradouro, this.numero, this.bairro, this.referencia));
+	}
+
 
 	public String getNomeFeira() {
 		return nomeFeira;

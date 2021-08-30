@@ -50,6 +50,8 @@ ___
 Caso queira utilizar o processo de CI/CD via Jenkins, só criar 1 nova pipeline (testado via modo freestyle) no Jenkins e adicionar como arquivo de build o arquivo `Jenkinsfile` contido na raiz do projeto
 # Documentação
 
+Todos os testes realizados na aplicação foram realizados via ferramenta POSTMAN para testes de API.
+
 https://documenter.getpostman.com/view/954685/U16bvU2e
 
 ## Logs da Aplicação
