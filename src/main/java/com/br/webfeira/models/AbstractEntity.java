@@ -20,6 +20,5 @@ public abstract class AbstractEntity {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
+	}	
 }

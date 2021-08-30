@@ -12,6 +12,8 @@ API de Gerenciamento do Ciclo de vida de criação de Feiras Online.
 
 >PostgresSQL 13.4.1
 
+>H2 Database 1.4.2
+
 >Docker 19.03.12
 
 >docker-compose 1.17.1
