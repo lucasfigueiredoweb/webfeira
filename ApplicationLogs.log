@@ -1,0 +1,37 @@
+2021-08-29 21:34:32.611  INFO 3136 --- [restartedMain] com.br.webfeira.WebFeiraApplication      : Starting WebFeiraApplication using Java 16.0.2 on LUCAS-PC with PID 3136 (C:\Users\lucas\Desktop\web-feira\target\classes started by lucas in C:\Users\lucas\Desktop\web-feira)
+2021-08-29 21:34:32.612  INFO 3136 --- [restartedMain] com.br.webfeira.WebFeiraApplication      : No active profile set, falling back to default profiles: default
+2021-08-29 21:34:32.645  INFO 3136 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-08-29 21:34:32.687  INFO 3136 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-08-29 21:34:33.265  INFO 3136 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-29 21:34:33.304  INFO 3136 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 1 JPA repository interfaces.
+2021-08-29 21:34:33.861  INFO 3136 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-29 21:34:33.875  INFO 3136 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-29 21:34:33.875  INFO 3136 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-08-29 21:34:33.948  INFO 3136 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-08-29 21:34:33.948  INFO 3136 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1260 ms
+2021-08-29 21:34:34.300  INFO 3136 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-29 21:34:34.351  INFO 3136 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-29 21:34:34.476  INFO 3136 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-29 21:34:34.581  INFO 3136 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-29 21:34:34.724  INFO 3136 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-29 21:34:34.737  INFO 3136 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+2021-08-29 21:34:35.393  INFO 3136 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-29 21:34:35.399  INFO 3136 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-29 21:34:35.652  INFO 3136 --- [restartedMain] com.br.webfeira.repository.DataSetup     : Iniciando importacao do arquivo de feiras CSV
+2021-08-29 21:34:35.702  INFO 3136 --- [restartedMain] com.br.webfeira.repository.DataSetup     : Importacao concluida com sucesso
+2021-08-29 21:34:36.287  WARN 3136 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-29 21:34:37.085  INFO 3136 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-08-29 21:34:37.091  INFO 3136 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-08-29 21:34:37.164  INFO 3136 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-29 21:34:37.176  INFO 3136 --- [restartedMain] com.br.webfeira.WebFeiraApplication      : Started WebFeiraApplication in 4.826 seconds (JVM running for 5.141)
+2021-08-29 21:36:06.063  INFO 20964 --- [restartedMain] com.br.webfeira.WebFeiraApplication      : Starting WebFeiraApplication using Java 16.0.2 on LUCAS-PC with PID 20964 (C:\Users\lucas\Desktop\web-feira\target\classes started by lucas in C:\Users\lucas\Desktop\web-feira)
+2021-08-29 21:36:06.066  INFO 20964 --- [restartedMain] com.br.webfeira.WebFeiraApplication      : No active profile set, falling back to default profiles: default
+2021-08-29 21:36:06.102  INFO 20964 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-08-29 21:36:06.102  INFO 20964 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-08-29 21:36:06.839  INFO 20964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-29 21:36:06.883  INFO 20964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 1 JPA repository interfaces.
+2021-08-29 21:36:07.564  INFO 20964 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-29 21:36:07.574  INFO 20964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-29 21:36:07.575  INFO 20964 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-08-29 21:36:07.650  INFO 20964 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-08-29 21:36:07.651  INFO 20964 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1548 ms
