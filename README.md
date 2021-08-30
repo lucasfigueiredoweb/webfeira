@@ -20,6 +20,8 @@ API de Gerenciamento do Ciclo de vida de criação de Feiras Online.
 
 >GNU Make 4.1
 
+>JUNIT 5.7.2
+
 # Inicialização
 
 Os dados do arquivo “DEINFO_AB_FEIRASLIVRES_2014.csv” contidos no repositorio do projeto, na pasta data, são carregados automaticamente pelo sistema durante sua inicialização no banco de dados alvo.
