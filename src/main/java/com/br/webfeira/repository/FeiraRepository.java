@@ -1,6 +1,5 @@
 package com.br.webfeira.repository;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -13,18 +12,18 @@ import com.br.webfeira.model.Feira;
 
 @Repository
 public interface FeiraRepository extends CrudRepository<Feira, UUID> {
-	
+
 	Optional<Feira> findById(UUID id);
-	
+
 	Optional<Feira> findByCodigoRegistroFeira(String codigoRegistro);
-	
+
 	void deleteByCodigoRegistroFeira(String codigoRegistro);
-	
+
 	Page<Feira> findByNomeFeira(String nomeFeira, Pageable pageable);
-	
+
 	Page<Feira> findByMunicipio_Regiao5(String regiao5, Pageable pageable);
-	
+
 	Page<Feira> findByMunicipio_NomeDistrito(String nomeDistrito, Pageable pageable);
-	
+
 	Page<Feira> findByEndereco_Bairro(String bairro, Pageable pageable);
 }

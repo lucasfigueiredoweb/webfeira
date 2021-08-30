@@ -1,7 +1,6 @@
 package com.br.webfeira.dto;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import com.br.webfeira.model.Endereco;
@@ -77,28 +76,28 @@ public class FeiraDTO {
 
 	public static List<FeiraDTO> toDTOList(List<Feira> feiras) {
 		List<FeiraDTO> feirasDTO = new ArrayList<FeiraDTO>();
-		
+
 		for (Feira feira : feiras) {
-				FeiraDTO dto = new FeiraDTO();
-				dto.setId(feira.getId().toString());
-				dto.setNomeFeira(feira.getNomeFeira());
-				dto.setRegistroFeira(feira.getRegistroFeira());
-				dto.setLongitude(feira.getLocalizacao().getLongitude());
-				dto.setLatitude(feira.getLocalizacao().getLatitude());
-				dto.setNomeCensitario(feira.getSetor().getNomeCensitario());
-				dto.setAreaCensitario(feira.getSetor().getAreaCensitario());
-				dto.setCodigoDistrito(feira.getMunicipio().getCodigoDistrito());
-				dto.setNomeDistrito(feira.getMunicipio().getNomeDistrito());
-				dto.setCodigoPrefeitura(feira.getMunicipio().getCodigoPrefeitura());
-				dto.setNomePrefeitura(feira.getMunicipio().getNomePrefeitura());
-				dto.setRegiao5(feira.getMunicipio().getRegiao5());
-				dto.setRegiao8(feira.getMunicipio().getRegiao8());
-				dto.setLogradouro(feira.getEndereco().getLogradouro());
-				dto.setNumero(feira.getEndereco().getNumero());
-				dto.setBairro(feira.getEndereco().getBairro());
-				dto.setReferencia(feira.getEndereco().getReferencia());
-				feirasDTO.add(dto);
-			}
+			FeiraDTO dto = new FeiraDTO();
+			dto.setId(feira.getId().toString());
+			dto.setNomeFeira(feira.getNomeFeira());
+			dto.setRegistroFeira(feira.getRegistroFeira());
+			dto.setLongitude(feira.getLocalizacao().getLongitude());
+			dto.setLatitude(feira.getLocalizacao().getLatitude());
+			dto.setNomeCensitario(feira.getSetor().getNomeCensitario());
+			dto.setAreaCensitario(feira.getSetor().getAreaCensitario());
+			dto.setCodigoDistrito(feira.getMunicipio().getCodigoDistrito());
+			dto.setNomeDistrito(feira.getMunicipio().getNomeDistrito());
+			dto.setCodigoPrefeitura(feira.getMunicipio().getCodigoPrefeitura());
+			dto.setNomePrefeitura(feira.getMunicipio().getNomePrefeitura());
+			dto.setRegiao5(feira.getMunicipio().getRegiao5());
+			dto.setRegiao8(feira.getMunicipio().getRegiao8());
+			dto.setLogradouro(feira.getEndereco().getLogradouro());
+			dto.setNumero(feira.getEndereco().getNumero());
+			dto.setBairro(feira.getEndereco().getBairro());
+			dto.setReferencia(feira.getEndereco().getReferencia());
+			feirasDTO.add(dto);
+		}
 		return feirasDTO;
 	}
 
