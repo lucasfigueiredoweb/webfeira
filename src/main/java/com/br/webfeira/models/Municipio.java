@@ -2,21 +2,25 @@ package com.br.webfeira.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
 
 @Entity
+@Table(indexes = { @Index(name = "IDX_NOMEDISTRITOIDX1", columnList = "CODDIST"),
+	@Index(name = "IDX_REGIAO5IDX1", columnList = "REGIAO5") })
 public class Municipio extends AbstractEntity {
 
-	@Column(name="CODDIST", length=9, nullable=false, unique=false)
+	@Column(name = "CODDIST", length = 9, nullable = false, unique = false)
 	private String codigoDistrito;
-	@Column(name="DISTRITO", length=18, nullable=false, unique=false)
+	@Column(name = "DISTRITO", length = 18, nullable = false, unique = false)
 	private String nomeDistrito;
-	@Column(name="CODSUBPREF", length=2, nullable=false, unique=false)
+	@Column(name = "CODSUBPREF", length = 2, nullable = false, unique = false)
 	private String codigoPrefeitura;
-	@Column(name="SUBPREF", length=25, nullable=false, unique=false)
+	@Column(name = "SUBPREF", length = 25, nullable = false, unique = false)
 	private String nomePrefeitura;
-	@Column(name="REGIAO5", length=6, nullable=false, unique=false)
+	@Column(name = "REGIAO5", length = 6, nullable = false, unique = false)
 	private String regiao5;
-	@Column(name="REGIAO8", length=7, nullable=false, unique=false)
+	@Column(name = "REGIAO8", length = 7, nullable = false, unique = false)
 	private String regiao8;
 
 	public Municipio() {

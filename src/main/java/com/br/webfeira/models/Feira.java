@@ -3,12 +3,21 @@ package com.br.webfeira.models;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(indexes = { @Index(name = "IDX_NOMEFEIRAIDX1", columnList = "NOME_FEIRA") })
 public class Feira extends AbstractEntity {
+	
+	@Column(name="NOME_FEIRA", length=30, nullable=false, unique=false)
+	private String nomeFeira;
+	
+	@Column(name="REGISTRO", length=6, nullable=false, unique=false)
+	private String codigoRegistroFeira;
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "LOCALIZACAO_ID")
@@ -25,11 +34,6 @@ public class Feira extends AbstractEntity {
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ENDERECO_ID")
 	private Endereco endereco;
-
-	@Column(name="NOME_FEIRA", length=30, nullable=false, unique=false)
-	private String nomeFeira;
-	@Column(name="REGISTRO", length=6, nullable=false, unique=false)
-	private String codigoRegistroFeira;
 	
 	public Feira() {
 		super();

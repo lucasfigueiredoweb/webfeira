@@ -2,8 +2,11 @@ package com.br.webfeira.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
 
 @Entity
+@Table(indexes = { @Index(name = "IDX_BAIRROIDX1", columnList = "BAIRRO") })
 public class Endereco extends AbstractEntity {
 
 	@Column(name="LOGRADOURO", length=34, nullable=false, unique=false)
