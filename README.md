@@ -70,12 +70,6 @@ Arquivo na raiz do projeto: `ApplicationLogs.log`
 ## Melhorias Futuras:,
 - Adicionar mais testes e tipos de testes.
 
-- Adicionar índices nas colunas nas 4 consultas disponíveis:
-○ distrito
-○ regiao5
-○ nome_feira
-○ bairro
-
 - Incrementar Makefile com K8s deploy.
 
 - Implantar em algum cloudProvider ou PaaS para utilização sem necessidade de baixar o projeto.
