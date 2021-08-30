@@ -1,5 +1,6 @@
 package com.br.webfeira.exchange;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_NULL)
-public class FeiraResponse {
+public class FeiraResponse implements Serializable {
+	
+	private static final long serialVersionUID = 722310309716504920L;
 
 	private String details;
 

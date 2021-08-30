@@ -63,7 +63,7 @@ public class FeiraController {
 		try {
 			feiraService.updateByCodigoRegistroFeira(codigoRegistro, feiraRequest);
 		} catch (ResourceNotFoundException e) {
-			LOGGER.error("Feira nao Encontrada para atualizacao dos dados", e);
+			LOGGER.error(MessageConstants.ERRO_BUSCAR_FEIRA_ATUALIZACAO, e);
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body(new FeiraResponse(MessageConstants.FEIRA_NAO_ENCONTRADA));
 		} catch (Exception e) {
@@ -81,7 +81,7 @@ public class FeiraController {
 		try {
 			feiraService.deleteByCodigoRegistroFeira(codigoRegistro);
 		} catch (ResourceNotFoundException e) {
-			LOGGER.error("Feira nao Encontrada para atualizacao dos dados", e);
+			LOGGER.error(MessageConstants.ERRO_BUSCAR_FEIRA_ATUALIZACAO, e);
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body(new FeiraResponse(MessageConstants.FEIRA_NAO_ENCONTRADA));
 		} catch (Exception e) {
@@ -101,11 +101,11 @@ public class FeiraController {
 		try {
 			feirasResponse = FeiraResponse.toResponseList(feiraService.findByNomeFeira(nomeFeira, pageable).getContent());
 		} catch (ResourceNotFoundException e) {
-			LOGGER.error("Feira nao Encontrada", e);
+			LOGGER.error(MessageConstants.FEIRA_NAO_ENCONTRADA, e);
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body(new FeiraResponse(MessageConstants.FEIRA_NAO_ENCONTRADA));
 		} catch (Exception e) {
-			LOGGER.error("Feira nao Encontrada", e);
+			LOGGER.error(MessageConstants.ERRO_BUSCAR_FEIRA, e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 					.body(new FeiraResponse(MessageConstants.ERRO_GENERICO_DO_SISTEMA));
 		}
@@ -121,11 +121,11 @@ public class FeiraController {
 		try {
 			feirasResponse = FeiraResponse.toResponseList(feiraService.findByMunicipio_Regiao5(regiao5, pageable).getContent());
 		} catch (ResourceNotFoundException e) {
-			LOGGER.error("Feira nao Encontrada", e);
+			LOGGER.error(MessageConstants.FEIRA_NAO_ENCONTRADA, e);
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body(new FeiraResponse(MessageConstants.FEIRA_NAO_ENCONTRADA));
 		} catch (Exception e) {
-			LOGGER.error(MessageConstants.ERRO_GENERICO_DO_SISTEMA, e);
+			LOGGER.error(MessageConstants.ERRO_BUSCAR_FEIRA, e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 					.body(new FeiraResponse(MessageConstants.ERRO_GENERICO_DO_SISTEMA));
 		}
@@ -141,11 +141,11 @@ public class FeiraController {
 		try {
 			feirasResponse = FeiraResponse.toResponseList(feiraService.findByMunicipio_NomeDistrito(nomeDistrito, pageable).getContent());
 		} catch (ResourceNotFoundException e) {
-			LOGGER.error("Feira nao Encontrada", e);
+			LOGGER.error(MessageConstants.FEIRA_NAO_ENCONTRADA, e);
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body(new FeiraResponse(MessageConstants.FEIRA_NAO_ENCONTRADA));
 		} catch (Exception e) {
-			LOGGER.error(MessageConstants.ERRO_GENERICO_DO_SISTEMA, e);
+			LOGGER.error(MessageConstants.ERRO_BUSCAR_FEIRA, e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 					.body(new FeiraResponse(MessageConstants.ERRO_GENERICO_DO_SISTEMA));
 		}
@@ -161,11 +161,11 @@ public class FeiraController {
 		try {
 			feirasResponse = FeiraResponse.toResponseList(feiraService.findByEndereco_Bairro(bairro, pageable).getContent());
 		} catch (ResourceNotFoundException e) {
-			LOGGER.error("Feira nao Encontrada", e);
+			LOGGER.error(MessageConstants.FEIRA_NAO_ENCONTRADA, e);
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
 					.body(new FeiraResponse(MessageConstants.FEIRA_NAO_ENCONTRADA));
 		} catch (Exception e) {
-			LOGGER.error(MessageConstants.ERRO_GENERICO_DO_SISTEMA, e);
+			LOGGER.error(MessageConstants.ERRO_BUSCAR_FEIRA, e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 					.body(new FeiraResponse(MessageConstants.ERRO_GENERICO_DO_SISTEMA));
 		}
