@@ -18,3 +18,8 @@ Os dados do arquivo “DEINFO_AB_FEIRASLIVRES_2014.csv” contidos no repositori
 
 https://documenter.getpostman.com/view/954685/U16bvU2e
 
+# Logs da Aplicação
+Arquivo: ApplicationLogs.log
+
+## Licença
+MIT
